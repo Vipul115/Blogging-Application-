@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -10,3 +11,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self): # After a new post is created, django doesn't know where to redirect. This function will provide a path to solve that issue.
+        return reverse('post-detail', kwargs = {'pk': self.pk})      

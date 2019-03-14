@@ -1,7 +1,7 @@
 DJANGO SHELL COMMANDS CHEAT SHEET
 
 from django.contrib.auth.models import User
-from blog.models import Post #Wherever you created the class 'Post'
+from blog.models import Post # Wherever you created the class 'Post'
 
 1. See all users
     User.objects.all()
@@ -21,6 +21,7 @@ from blog.models import Post #Wherever you created the class 'Post'
 5. Create a Post
     post1 = Post(title ='', content= '', author=user1 ...) # Mention all required fields
     post1.save()
+    
     OR
 
     user1.post_set.create(title ='', content= '') # No need to mention author
